@@ -14,6 +14,7 @@ import com.nayan.databindingapp.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding activityMainBinding;
+    private MyClickHandler myHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Person p1 = new Person("Jack","jack@gmail.com");
         activityMainBinding= DataBindingUtil.setContentView(this,R.layout.activity_main);
         activityMainBinding.setPerson(p1);
+
+
+        //binding for click event
+        myHandler = new MyClickHandler(this);
+        activityMainBinding.setClickHandler(myHandler);
     }
 }
